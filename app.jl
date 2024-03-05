@@ -10,7 +10,7 @@ function define_ODE()
     eqs = [D(x) ~ σ * (y - x),
         D(y) ~ x * (ρ - z) - y,
         D(z) ~ x * y - β * z]
-    @named sys = ODESystem(eqs)
+    @named sys = ODESystem(eqs,t)
     sys = structural_simplify(sys)
     u0 = [x => 1.0,
         y => 0.0,
